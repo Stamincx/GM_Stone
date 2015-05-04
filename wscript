@@ -64,3 +64,42 @@ def build(ctx):
         ctx.pbl_bundle(elf='pebble-app.elf',
                        js='pebble-js-app.js' if has_js else [])
 
+def generate_appinfo_h(task):
+	src = task.inputs[0].abspath()
+	target = task.outputs[0].abspath()
+	appinfo = json.load(open(src))
+	f = open(target, 'w')
+	f.write('#pragma once\n\n')
+	f.write('#define VERSION_LABEL "{0}"\n'.format(appinfo['versionLabel']))
+	f.write('#define UUID "{0}"\n'.format(appinfo['uuid']))
+	for key in appinfo['appKeys']:
+		f.write('#define APP_KEY_{0} {1}\n'.format(key.upper(), appinfo['appKeys'][key]))
+	f.close()
+
+def generate_keys_h(task):
+	src = task.inputs[0].abspath()
+	target = task.outputs[0].abspath()
+	keys = json.load(open(src))
+	f = open(target, 'w')
+	f.write('#pragma once\n\n')
+	for key in keys:
+		f.write('enum {\n')
+		for key2 in keys[key]:
+			f.write('\tKEY_{0}_{1},\n'.format(key, key2))
+		f.write('};\n')
+	f.close()
+	
+def generate_keys_js(task):
+	src = task.inputs[0].abspath()
+	target = task.outputs[0].abspath()
+	keys = json.load(open(src))
+	f = open(target, 'w')
+	for key in keys:
+		f.write('var {0} = {{'.format(key))
+		i = 0
+		for key2 in keys[key]:
+			if i > 0: f.write(',')
+			f.write('\n\t{0}: {1}'.format(key2, i))
+			i += 1
+		f.write('\n};\n')
+	f.close()
