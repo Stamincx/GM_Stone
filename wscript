@@ -31,6 +31,15 @@ def build(ctx):
         except ErrorReturnCode_2 as e:
             ctx.fatal("\nJavaScript linting failed (you can disable this in Project Settings):\n" + e.stdout)
 
+	# Generate appinfo.h
+	ctx(rule=generate_appinfo_h, source='appinfo.json', target='../src/generated/appinfo.h')
+
+	# Generate keys.h
+	ctx(rule=generate_keys_h, source='src/keys.json', target='../src/generated/keys.h')
+
+	# Generate keys.js
+	ctx(rule=generate_keys_js, source='src/keys.json', target='../src/js/src/generated/keys.js')
+
     # Concatenate all our JS files (but not recursively), and only if any JS exists in the first place.
     ctx.path.make_node('src/js/').mkdir()
     js_paths = ctx.path.ant_glob(['src/*.js', 'src/**/*.js'])
