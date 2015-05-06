@@ -7,6 +7,7 @@
 #include "win-vlc.h"
 #include "win-xbmc.h"
 #include "win-wdtv.h"
+#include "win-viera.h"
 
 static uint16_t menu_get_num_sections_callback(struct MenuLayer *menu_layer, void *callback_context);
 static uint16_t menu_get_num_rows_callback(struct MenuLayer *menu_layer, uint16_t section_index, void *callback_context);
@@ -63,6 +64,9 @@ void win_players_push_player(void) {
 			break;
 		case MediaPlayerWDTV:
 			win_wdtv_push();
+			break;
+		case MediaPlayerVIERA:
+			win_viera_push();
 			break;
 	}
 }
