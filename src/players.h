@@ -7,6 +7,7 @@ typedef enum {
 	MediaPlayerVLC,
 	MediaPlayerXBMC,
 	MediaPlayerWDTV,
+	MediaPlayerVIERA,
 } MediaPlayer;
 
 typedef struct {
