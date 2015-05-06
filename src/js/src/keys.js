@@ -36,7 +36,8 @@ var TYPE = {
     PLEX: 2,
     VLC: 3,
     XBMC: 4,
-    WDTV: 5
+    WDTV: 5,
+    WIERA: 6
 };
 
 var METHOD = {
@@ -48,8 +49,9 @@ var METHOD = {
     VLC: 5,
     XBMC: 6,
     WDTV: 7,
-    REQUESTPLAYERS: 8,
-    READY: 9
+    VIERA: 8,
+    REQUESTPLAYERS: 9,
+    READY: 10
 };
 
 var PERSIST = {
@@ -57,5 +59,6 @@ var PERSIST = {
     PLEX_CONTROLLING_TYPE: 1,
     VLC_CONTROLLING_TYPE: 2,
     XBMC_CONTROLLING_TYPE: 3,
-    WDTV_CONTROLLING_TYPE: 4
+    WDTV_CONTROLLING_TYPE: 4,
+    VIERA_CONTROLLING_TYPE:5
 };
