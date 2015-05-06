@@ -28,6 +28,12 @@ GBitmap *action_icon_select = NULL;
 GBitmap *action_icon_back = NULL;
 GBitmap *action_icon_home = NULL;
 GBitmap *action_icon_settings = NULL;
+GBitmap *action_icon_stop = NULL;
+GBitmap *action_icon_left = NULL;
+GBitmap *action_icon_right = NULL;
+GBitmap *action_icon_mute = NULL;
+GBitmap *action_icon_power = NULL;
+GBitmap *action_icon_options = NULL;
 
 void skipstone_init(void) {
 	timer = app_timer_register(1000, timer_callback, NULL);
@@ -54,6 +60,12 @@ void skipstone_init(void) {
 	action_icon_back = gbitmap_create_with_resource(RESOURCE_ID_ICON_BACK);
 	action_icon_home = gbitmap_create_with_resource(RESOURCE_ID_ICON_HOME);
 	action_icon_settings = gbitmap_create_with_resource(RESOURCE_ID_ICON_SETTINGS);
+	action_icon_stop = gbitmap_create_with_resource(RESOURCE_ID_ICON_STOP);
+	action_icon_left = gbitmap_create_with_resource(RESOURCE_ID_ICON_LEFT);
+	action_icon_right = gbitmap_create_with_resource(RESOURCE_ID_ICON_RIGHT);
+	action_icon_mute = gbitmap_create_with_resource(RESOURCE_ID_ICON_MUTE);
+	action_icon_power = gbitmap_create_with_resource(RESOURCE_ID_ICON_POWER);
+	action_icon_options = gbitmap_create_with_resource(RESOURCE_ID_ICON_OPTIONS);
 }
 
 void skipstone_deinit(void) {
@@ -72,6 +84,12 @@ void skipstone_deinit(void) {
 	gbitmap_destroy_safe(action_icon_back);
 	gbitmap_destroy_safe(action_icon_home);
 	gbitmap_destroy_safe(action_icon_settings);
+	gbitmap_destroy_safe(action_icon_stop);
+	gbitmap_destroy_safe(action_icon_left);
+	gbitmap_destroy_safe(action_icon_right);
+	gbitmap_destroy_safe(action_icon_mute);
+	gbitmap_destroy_safe(action_icon_power);
+	gbitmap_destroy_safe(action_icon_options);
 	wdtv_deinit();
 	xbmc_deinit();
 	vlc_deinit();

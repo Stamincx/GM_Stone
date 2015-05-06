@@ -17,6 +17,12 @@ extern GBitmap *action_icon_select;
 extern GBitmap *action_icon_back;
 extern GBitmap *action_icon_home;
 extern GBitmap *action_icon_settings;
+extern GBitmap *action_icon_stop;
+extern GBitmap *action_icon_left;
+extern GBitmap *action_icon_right;
+extern GBitmap *action_icon_mute;
+extern GBitmap *action_icon_power;
+extern GBitmap *action_icon_options;
 
 void skipstone_init(void);
 void skipstone_deinit(void);

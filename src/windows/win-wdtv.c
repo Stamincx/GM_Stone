@@ -61,21 +61,30 @@ static void update_display() {
 	switch (controlling_type) {
 		case 0:
 			inverter_layer = inverter_layer_create(GRect(8, 10, 108, 36));
-			action_bar_layer_set_icon(action_bar, BUTTON_ID_UP, action_icon_rewind);
-			action_bar_layer_set_icon(action_bar, BUTTON_ID_DOWN, action_icon_forward);
-			action_bar_layer_set_icon(action_bar, BUTTON_ID_SELECT, action_icon_play_pause);
+	      action_bar_layer_set_icon(action_bar, BUTTON_ID_UP, action_icon_previous);
+				action_bar_layer_set_icon(action_bar, BUTTON_ID_DOWN, action_icon_next);
+	  		action_bar_layer_set_icon(action_bar, BUTTON_ID_SELECT, action_icon_stop);
+//	    action_bar_layer_set_icon(action_bar, BUTTON_ID_UP, action_icon_rewind);
+//  		action_bar_layer_set_icon(action_bar, BUTTON_ID_DOWN, action_icon_forward);
+//			action_bar_layer_set_icon(action_bar, BUTTON_ID_SELECT, action_icon_play_pause);
 			break;
 		case 1:
 			inverter_layer = inverter_layer_create(GRect(8, 58, 108, 36));
-			action_bar_layer_set_icon(action_bar, BUTTON_ID_UP, action_icon_up);
-			action_bar_layer_set_icon(action_bar, BUTTON_ID_DOWN, action_icon_down);
-			action_bar_layer_set_icon(action_bar, BUTTON_ID_SELECT, action_icon_select);
+//			action_bar_layer_set_icon(action_bar, BUTTON_ID_UP, action_icon_up);
+//			action_bar_layer_set_icon(action_bar, BUTTON_ID_DOWN, action_icon_down);
+//			action_bar_layer_set_icon(action_bar, BUTTON_ID_SELECT, action_icon_select);
+			action_bar_layer_set_icon(action_bar, BUTTON_ID_UP, action_icon_left);
+			action_bar_layer_set_icon(action_bar, BUTTON_ID_DOWN, action_icon_right);
+			action_bar_layer_set_icon(action_bar, BUTTON_ID_SELECT, action_icon_back);
 			break;
 		case 2:
 			inverter_layer = inverter_layer_create(GRect(8, 105, 108, 36));
-			action_bar_layer_set_icon(action_bar, BUTTON_ID_UP, action_icon_back);
-			action_bar_layer_set_icon(action_bar, BUTTON_ID_DOWN, action_icon_settings);
-			action_bar_layer_set_icon(action_bar, BUTTON_ID_SELECT, action_icon_home);
+//			action_bar_layer_set_icon(action_bar, BUTTON_ID_UP, action_icon_back);
+//			action_bar_layer_set_icon(action_bar, BUTTON_ID_DOWN, action_icon_settings);
+//			action_bar_layer_set_icon(action_bar, BUTTON_ID_SELECT, action_icon_home);
+			action_bar_layer_set_icon(action_bar, BUTTON_ID_UP, action_icon_mute);
+			action_bar_layer_set_icon(action_bar, BUTTON_ID_DOWN, action_icon_options);
+			action_bar_layer_set_icon(action_bar, BUTTON_ID_SELECT, action_icon_power);
 			break;
 	}
 	inverter_layer_add_to_window(inverter_layer, window);
