@@ -9,6 +9,7 @@
 #include "vlc.h"
 #include "xbmc.h"
 #include "wdtv.h"
+#include "viera.h"
 
 static void timer_callback(void *data);
 static AppTimer *timer = NULL;
@@ -44,6 +45,7 @@ void skipstone_init(void) {
 	vlc_init();
 	xbmc_init();
 	wdtv_init();
+	viera_init();
 
 	action_icon_volume_up = gbitmap_create_with_resource(RESOURCE_ID_ICON_VOLUME_UP);
 	action_icon_volume_down = gbitmap_create_with_resource(RESOURCE_ID_ICON_VOLUME_DOWN);
@@ -90,6 +92,7 @@ void skipstone_deinit(void) {
 	gbitmap_destroy_safe(action_icon_mute);
 	gbitmap_destroy_safe(action_icon_power);
 	gbitmap_destroy_safe(action_icon_options);
+	viera_deinit();
 	wdtv_deinit();
 	xbmc_deinit();
 	vlc_deinit();
@@ -116,6 +119,9 @@ void skipstone_in_received_handler(DictionaryIterator *iter) {
 		case KEY_TYPE_WDTV:
 			wdtv_in_received_handler(iter);
 			break;
+		case KEY_TYPE_VIERA:
+			viera_in_received_handler(iter);
+			break;
 	}
 }
 
@@ -128,6 +134,7 @@ void skipstone_reload_data_and_mark_dirty() {
 	vlc_reload_data_and_mark_dirty();
 	xbmc_reload_data_and_mark_dirty();
 	wdtv_reload_data_and_mark_dirty();
+	viera_reload_data_and_mark_dirty();
 }
 
 void skipstone_request(uint8_t method, uint8_t request) {
