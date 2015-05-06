@@ -109,6 +109,8 @@ char* player_to_str(MediaPlayer mediaplayer) {
 			return "XBMC";
 		case MediaPlayerWDTV:
 			return "WDTV";
+		case MediaPlayerVIERA:
+			return "VIERA";
 		default:
 			return "";
 	}
