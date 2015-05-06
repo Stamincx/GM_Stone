@@ -36,6 +36,9 @@ var Skipstone = {
 			case METHOD.WDTV:
 				WDTV.handleAppMessage(e.payload);
 				break;
+			case METHOD.VIERA:
+				VIERA.handleAppMessage(e.payload);
+				break;
 		}
 	},
 
