@@ -24,8 +24,8 @@ var Skipstone = {
 			case METHOD.REQUESTPLAYERS:
 				Skipstone.sendPlayers();
 				break;
-			case METHOD.PLEX:
-				Plex.handleAppMessage(e.payload);
+			case METHOD.VIERA:
+				VIERA.handleAppMessage(e.payload);
 				break;
 			case METHOD.VLC:
 				VLC.handleAppMessage(e.payload);
@@ -35,9 +35,6 @@ var Skipstone = {
 				break;
 			case METHOD.WDTV:
 				WDTV.handleAppMessage(e.payload);
-				break;
-			case METHOD.VIERA:
-				VIERA.handleAppMessage(e.payload);
 				break;
 		}
 	},
