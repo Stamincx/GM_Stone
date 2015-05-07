@@ -101,8 +101,6 @@ void players_set_current(uint8_t index) {
 
 char* player_to_str(MediaPlayer mediaplayer) {
 	switch (mediaplayer) {
-		case MediaPlayerPLEX:
-			return "Plex";
 		case MediaPlayerVLC:
 			return "VLC";
 		case MediaPlayerXBMC:
