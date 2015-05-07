@@ -3,7 +3,6 @@
 #include "libs/pebble-assist.h"
 #include "skipstone.h"
 #include "players.h"
-#include "win-plex.h"
 #include "win-vlc.h"
 #include "win-xbmc.h"
 #include "win-wdtv.h"
@@ -53,9 +52,6 @@ void win_players_reload_data_and_mark_dirty(void) {
 void win_players_push_player(void) {
 	menu_layer_set_selected_index(menu_layer, (MenuIndex) { .row = players_get_current_index(), .section = 0 }, MenuRowAlignTop, false);
 	switch (players_get_current()->mediaplayer) {
-		case MediaPlayerPLEX:
-			win_plex_push();
-			break;
 		case MediaPlayerVLC:
 			win_vlc_push();
 			break;
