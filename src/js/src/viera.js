@@ -3,11 +3,11 @@ var VIERA = {
 		var player = Skipstone.players[payload.player];
 		var request = payload.request || null;
 		var data = {};
-		var comandi = [];
-		comandi.push("NRC_CH_UP-ONOFF");
-		comandi.push("NRC_CH_DOWN-ONOFF");
-		comandi.push("NRC_VOLUP-ONOFF");
-		comandi.push("NRC_VOLDOWN-ONOFF");
+//		var comandi = [];
+//		comandi.push("NRC_CH_UP-ONOFF");
+//		comandi.push("NRC_CH_DOWN-ONOFF");
+//		comandi.push("NRC_VOLUP-ONOFF");
+//		comandi.push("NRC_VOLDOWN-ONOFF");
 
 	console.log('in viera.js');
 
@@ -75,15 +75,15 @@ var VIERA = {
 				break;
 		}
 
-	var url = 'http://' player.server + ':55000/nrc/control_0';
+	var url = 'http://' + player.server + ':55000/nrc/control_0';
 	console.log('viera url request=' + url );
 	console.log('viera new xmlhttprequest');
 	var xhr = new XMLHttpRequest();
 	console.log('viera open xmlhttprequest');
 	xhr.open("POST", url, true);
-	request.setRequestHeader("SOAPAction", '"urn:panasonic-com:service:p00NetworkControl:1#X_SendKey"');
-	request.setRequestHeader("Content-Type", "text/xml");
+	xhr.setRequestHeader("SOAPAction", '"urn:panasonic-com:service:p00NetworkControl:1#X_SendKey"');
+	xhr.setRequestHeader("Content-Type", "text/xml");
 	xhr.timeout = 20000;
-	request.send('<s:Envelope xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\" s:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\"><s:Body><u:X_SendKey xmlns:u=\"urn:panasonic-com:service:p00NetworkControl:1\"><X_KeyEvent>'+comandi[1]+'</X_KeyEvent></u:X_SendKey></s:Body></s:Envelope>');
+	xhr.send('<s:Envelope xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\" s:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\"><s:Body><u:X_SendKey xmlns:u=\"urn:panasonic-com:service:p00NetworkControl:1\"><X_KeyEvent>'+'NRC_CH_UP-ONOFF'+'</X_KeyEvent></u:X_SendKey></s:Body></s:Envelope>');
 	}
 };
