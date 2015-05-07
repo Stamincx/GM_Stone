@@ -34,6 +34,7 @@ GBitmap *action_icon_right = NULL;
 GBitmap *action_icon_mute = NULL;
 GBitmap *action_icon_power = NULL;
 GBitmap *action_icon_options = NULL;
+GBitmap *action_icon_av = NULL;
 
 void skipstone_init(void) {
 	timer = app_timer_register(1000, timer_callback, NULL);
@@ -66,6 +67,7 @@ void skipstone_init(void) {
 	action_icon_mute = gbitmap_create_with_resource(RESOURCE_ID_ICON_MUTE);
 	action_icon_power = gbitmap_create_with_resource(RESOURCE_ID_ICON_POWER);
 	action_icon_options = gbitmap_create_with_resource(RESOURCE_ID_ICON_OPTIONS);
+	action_icon_av = gbitmap_create_with_resource(RESOURCE_ID_ICON_AV);
 }
 
 void skipstone_deinit(void) {
@@ -90,6 +92,7 @@ void skipstone_deinit(void) {
 	gbitmap_destroy_safe(action_icon_mute);
 	gbitmap_destroy_safe(action_icon_power);
 	gbitmap_destroy_safe(action_icon_options);
+	gbitmap_destroy_safe(action_icon_av);
 	viera_deinit();
 	wdtv_deinit();
 	xbmc_deinit();

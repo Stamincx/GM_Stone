@@ -62,9 +62,9 @@ static void update_display() {
 	switch (controlling_type) {
 		case 0:
 			inverter_layer = inverter_layer_create(GRect(8, 10, 108, 36));
-	      action_bar_layer_set_icon(action_bar, BUTTON_ID_UP, action_icon_previous);
-				action_bar_layer_set_icon(action_bar, BUTTON_ID_DOWN, action_icon_next);
-	  		action_bar_layer_set_icon(action_bar, BUTTON_ID_SELECT, action_icon_stop);
+	      action_bar_layer_set_icon(action_bar, BUTTON_ID_UP, action_icon_volume_up);
+				action_bar_layer_set_icon(action_bar, BUTTON_ID_DOWN, action_icon_volume_down);
+	  		action_bar_layer_set_icon(action_bar, BUTTON_ID_SELECT, action_icon_av);
 			break;
 		case 1:
 			inverter_layer = inverter_layer_create(GRect(8, 58, 108, 36));
@@ -74,8 +74,8 @@ static void update_display() {
 			break;
 		case 2:
 			inverter_layer = inverter_layer_create(GRect(8, 105, 108, 36));
-			action_bar_layer_set_icon(action_bar, BUTTON_ID_UP, action_icon_mute);
-			action_bar_layer_set_icon(action_bar, BUTTON_ID_DOWN, action_icon_options);
+			action_bar_layer_set_icon(action_bar, BUTTON_ID_UP, action_icon_settings);
+			action_bar_layer_set_icon(action_bar, BUTTON_ID_DOWN, action_icon_play_pause);
 			action_bar_layer_set_icon(action_bar, BUTTON_ID_SELECT, action_icon_power);
 			break;
 	}
@@ -89,24 +89,10 @@ static void back_single_click_handler(ClickRecognizerRef recognizer, void *conte
 static void up_single_click_handler(ClickRecognizerRef recognizer, void *context) {
 	switch (controlling_type) {
 		case 0:
-			viera_request(KEY_REQUEST_REWIND);
+			viera_request(KEY_REQUEST_NEXT);
 			break;
 		case 1:
 			viera_request(KEY_REQUEST_UP);
-			break;
-		case 2:
-			viera_request(KEY_REQUEST_BACK);
-			break;
-	}
-}
-
-static void down_single_click_handler(ClickRecognizerRef recognizer, void *context) {
-	switch (controlling_type) {
-		case 0:
-			viera_request(KEY_REQUEST_FORWARD);
-			break;
-		case 1:
-			viera_request(KEY_REQUEST_DOWN);
 			break;
 		case 2:
 			viera_request(KEY_REQUEST_SETUP);
@@ -114,10 +100,24 @@ static void down_single_click_handler(ClickRecognizerRef recognizer, void *conte
 	}
 }
 
+static void down_single_click_handler(ClickRecognizerRef recognizer, void *context) {
+	switch (controlling_type) {
+		case 0:
+			viera_request(KEY_REQUEST_PREV);
+			break;
+		case 1:
+			viera_request(KEY_REQUEST_DOWN);
+			break;
+		case 2:
+			viera_request(KEY_REQUEST_STOP);
+			break;
+	}
+}
+
 static void select_single_click_handler(ClickRecognizerRef recognizer, void *context) {
 	switch (controlling_type) {
 		case 0:
-			viera_request(KEY_REQUEST_PLAY_PAUSE);
+			viera_request(KEY_REQUEST_FORWARD);
 			break;
 		case 1:
 			viera_request(KEY_REQUEST_OK);
@@ -131,13 +131,13 @@ static void select_single_click_handler(ClickRecognizerRef recognizer, void *con
 static void up_long_click_handler(ClickRecognizerRef recognizer, void *context) {
 	switch (controlling_type) {
 		case 0:
-			viera_request(KEY_REQUEST_PREV);
+			viera_request(KEY_REQUEST_VOLUME_INCREMENT);
 			break;
 		case 1:
 			viera_request(KEY_REQUEST_LEFT);
 			break;
 		case 2:
-			viera_request(KEY_REQUEST_MUTE);
+			viera_request(KEY_REQUEST_OPTION);
 			break;
 	}
 }
@@ -145,13 +145,13 @@ static void up_long_click_handler(ClickRecognizerRef recognizer, void *context) 
 static void down_long_click_handler(ClickRecognizerRef recognizer, void *context) {
 	switch (controlling_type) {
 		case 0:
-			viera_request(KEY_REQUEST_NEXT);
+			viera_request(KEY_REQUEST_VOLUME_DECREMENT);
 			break;
 		case 1:
 			viera_request(KEY_REQUEST_RIGHT);
 			break;
 		case 2:
-			viera_request(KEY_REQUEST_POWER);
+			viera_request(KEY_REQUEST_PLAY_PAUSE);
 			break;
 	}
 }
@@ -159,13 +159,13 @@ static void down_long_click_handler(ClickRecognizerRef recognizer, void *context
 static void select_long_click_handler(ClickRecognizerRef recognizer, void *context) {
 	switch (controlling_type) {
 		case 0:
-			viera_request(KEY_REQUEST_STOP);
+			viera_request(KEY_REQUEST_REWIND);
 			break;
 		case 1:
 			viera_request(KEY_REQUEST_BACK);
 			break;
 		case 2:
-			viera_request(KEY_REQUEST_OPTION);
+			viera_request(KEY_REQUEST_POWER);
 			break;
 	}
 }

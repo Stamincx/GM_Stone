@@ -23,6 +23,7 @@ extern GBitmap *action_icon_right;
 extern GBitmap *action_icon_mute;
 extern GBitmap *action_icon_power;
 extern GBitmap *action_icon_options;
+extern GBitmap *action_icon_av;
 
 void skipstone_init(void);
 void skipstone_deinit(void);
