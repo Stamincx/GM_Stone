@@ -3,11 +3,10 @@
 #include <pebble.h>
 
 typedef enum {
-	MediaPlayerPLEX,
+	MediaPlayerVIERA,
 	MediaPlayerVLC,
 	MediaPlayerXBMC,
 	MediaPlayerWDTV,
-	MediaPlayerVIERA,
 } MediaPlayer;
 
 typedef struct {
