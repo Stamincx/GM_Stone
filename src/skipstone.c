@@ -5,7 +5,6 @@
 #include "generated/keys.h"
 #include "appmessage.h"
 #include "players.h"
-#include "plex.h"
 #include "vlc.h"
 #include "xbmc.h"
 #include "wdtv.h"
@@ -41,7 +40,6 @@ void skipstone_init(void) {
 
 	appmessage_init();
 	players_init();
-	plex_init();
 	vlc_init();
 	xbmc_init();
 	wdtv_init();
@@ -96,7 +94,6 @@ void skipstone_deinit(void) {
 	wdtv_deinit();
 	xbmc_deinit();
 	vlc_deinit();
-	plex_deinit();
 	players_deinit();
 }
 
@@ -106,9 +103,6 @@ void skipstone_in_received_handler(DictionaryIterator *iter) {
 	switch (tuple->value->uint8) {
 		case KEY_TYPE_PLAYERS:
 			players_in_received_handler(iter);
-			break;
-		case KEY_TYPE_PLEX:
-			plex_in_received_handler(iter);
 			break;
 		case KEY_TYPE_VLC:
 			vlc_in_received_handler(iter);
@@ -130,7 +124,6 @@ void skipstone_out_failed_handler(DictionaryIterator *failed, AppMessageResult r
 }
 
 void skipstone_reload_data_and_mark_dirty() {
-	plex_reload_data_and_mark_dirty();
 	vlc_reload_data_and_mark_dirty();
 	xbmc_reload_data_and_mark_dirty();
 	wdtv_reload_data_and_mark_dirty();
