@@ -33,11 +33,10 @@ var REQUEST = {
 var TYPE = {
     ERROR: 0,
     PLAYERS: 1,
-    PLEX: 2,
+    VIERA: 2,
     VLC: 3,
     XBMC: 4,
-    WDTV: 5,
-    WIERA: 6
+    WDTV: 5
 };
 
 var METHOD = {
@@ -45,20 +44,18 @@ var METHOD = {
     SIZE: 1,
     DATA: 2,
     STATUS: 3,
-    PLEX: 4,
+    VIERA: 4,
     VLC: 5,
     XBMC: 6,
     WDTV: 7,
-    VIERA: 8,
-    REQUESTPLAYERS: 9,
-    READY: 10
+    REQUESTPLAYERS: 8,
+    READY: 9
 };
 
 var PERSIST = {
     LAST_USED_PLAYER: 0,
-    PLEX_CONTROLLING_TYPE: 1,
+    VIERA_CONTROLLING_TYPE: 1,
     VLC_CONTROLLING_TYPE: 2,
     XBMC_CONTROLLING_TYPE: 3,
-    WDTV_CONTROLLING_TYPE: 4,
-    VIERA_CONTROLLING_TYPE:5
+    WDTV_CONTROLLING_TYPE: 4
 };
